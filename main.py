@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import random
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils import executor
 from aiogram.dispatcher.filters import Text
@@ -451,12 +450,5 @@ async def bai_kzt(call: CallbackQuery):
 @dp.callback_query_handler(text='keremet_kzt')
 async def keremet_kzt(call: CallbackQuery):
     await call.message.answer('Курс KZT \n Покупка {} \n Продажа {}'.format(text[64], text[65]))
-
-@dp.message_handler(text='/photo')
-async def photo(message: types.Message):
-    index = random.randint(1, 10)
-    photo_path = InputFile(
-        path_or_bytesio='photos/image' + str(index) + '.jpg')
-    await bot.send_photo(chat_id=message.from_user.id, photo=photo_path, caption='Vot te photo')
 
 executor.start_polling(dp)
