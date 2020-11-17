@@ -1,0 +1,5 @@
+aiogram
+aiohttp
+random
+requests
+bs4
